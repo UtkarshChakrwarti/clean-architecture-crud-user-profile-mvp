@@ -1,21 +1,26 @@
 package com.nitr.hellonitr.repository;
 
 import com.nitr.hellonitr.entity.Users;
-import com.nitr.hellonitr.enums.DepartmentEnum;
-import com.nitr.hellonitr.enums.DesignationEnum;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.UUID;
 
-
+@Repository
 public interface UsersRepository extends JpaRepository<Users, UUID> {
 
-    List<Users> findByName(String name);
+    //Case-insensitive searches for name, department, and designation
+    @Query("SELECT u FROM Users u WHERE LOWER(u.name) LIKE LOWER(CONCAT('%', ?1, '%'))")
+    Page<Users> findByName(String name, Pageable pageable);
 
-    List<Users> findByDepartment(DepartmentEnum department);
+    @Query("SELECT u FROM Users u WHERE LOWER(u.department) LIKE LOWER(CONCAT('%', ?1, '%'))")
+    Page<Users> findByDepartment(String department, Pageable pageable);
 
-    List<Users> findByDesignation(DesignationEnum designation);
+    @Query("SELECT u FROM Users u WHERE LOWER(u.designation) LIKE LOWER(CONCAT('%', ?1, '%'))")
+    Page<Users> findByDesignation(String designation, Pageable pageable);
 
 
 }

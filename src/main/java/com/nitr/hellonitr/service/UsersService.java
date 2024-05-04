@@ -2,17 +2,14 @@ package com.nitr.hellonitr.service;
 
 import com.nitr.hellonitr.dtos.UsersDTO;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public interface UsersService {
 
     UsersDTO getUserById(String id);
 
-    Page<UsersDTO> getAllUsers(Pageable pageable);
+    Page<UsersDTO> getAllUsers(int page, int size);
 
     UsersDTO createUser(UsersDTO userDto);
 
@@ -20,10 +17,10 @@ public interface UsersService {
 
     void deleteUser(String id);
 
-    List<UsersDTO> searchByName(String name);
+    Page<UsersDTO> searchByName(String name, int page, int size);
 
-    List<UsersDTO> searchByDepartment(String department);
+    Page<UsersDTO> searchByDepartment(String department, int page, int size);
 
-    List<UsersDTO> searchByDesignation(String designation);
+    Page<UsersDTO> searchByDesignation(String designation, int page, int size);
 
 }

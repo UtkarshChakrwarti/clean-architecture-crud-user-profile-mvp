@@ -2,15 +2,14 @@ package com.nitr.hellonitr.entity;
 
 import com.nitr.hellonitr.enums.DepartmentEnum;
 import com.nitr.hellonitr.enums.DesignationEnum;
+import com.nitr.hellonitr.enums.RoleNameEnum;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -30,36 +29,34 @@ public class Users {
     private String password;
 
     @Column(name = "designation")
+    @Enumerated(EnumType.STRING)
     private DesignationEnum designation;
 
 
     @Column(name = "department")
+    @Enumerated(EnumType.STRING)
     private DepartmentEnum department;
 
-
-    @Column(name = "mobile")
+    @Column(name = "mobile", unique = true)
     private String mobile;
 
-
-    @Column(name = "work")
+    @Column(name = "work", unique = true)
     private String work;
 
 
     @Column(name = "residence")
     private String residence;
 
-
-    @Email
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @Lob
     @Column(name = "profile_picture")
     private byte[] profilePicture;
 
-    @ManyToMany
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<Role> roles;
+    @Column(name = "roles")
+    @Enumerated(EnumType.STRING)
+    private Set<RoleNameEnum> roles;
 
     @CreationTimestamp
     @Column(updatable = false, name = "created_at")
