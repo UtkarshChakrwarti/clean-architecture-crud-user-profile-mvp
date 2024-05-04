@@ -5,6 +5,7 @@ import com.nitr.hellonitr.exception.ResourceNotFoundException;
 import com.nitr.hellonitr.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +42,9 @@ public class UsersController {
 
     // Update an existing user: /api/users/{id}
     @PutMapping("/{id}")
-    public ResponseEntity<UsersDTO> updateUser(@PathVariable String id, @RequestBody UsersDTO userDto) {
+    public ResponseEntity<UsersDTO> updateUser(
+            @PathVariable String id,
+            @RequestBody UsersDTO userDto) {
         UsersDTO updatedUser = usersService.updateUser(id, userDto);
         if (updatedUser == null) {
             throw new ResourceNotFoundException("User not found with id " + id);
@@ -82,4 +85,20 @@ public class UsersController {
         return ResponseEntity.ok(usersService.searchByDesignation(designation, page, size));
     }
 
+    //todo: Add more search methods as needed
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> handleResourceNotFoundException(ResourceNotFoundException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResponseEntity<String> handleGeneralException(Exception ex) {
+        return new ResponseEntity<>("An error occurred: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    //Generic exception handler to catch all other exceptions
+    //todo: Use Custom Exception classes for more specific error handling
 }

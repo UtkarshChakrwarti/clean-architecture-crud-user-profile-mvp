@@ -3,6 +3,7 @@ package com.nitr.hellonitr.serviceImpl;
 import com.nitr.hellonitr.dtos.UsersDTO;
 import com.nitr.hellonitr.entity.Users;
 import com.nitr.hellonitr.enums.DepartmentEnum;
+import com.nitr.hellonitr.enums.DesignationEnum;
 import com.nitr.hellonitr.exception.ResourceNotFoundException;
 import com.nitr.hellonitr.repository.UsersRepository;
 import com.nitr.hellonitr.service.UsersService;
@@ -72,8 +73,7 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public Page<UsersDTO> searchByDepartment(String department, int page, int size) {
-        DepartmentEnum departmentEnum = DepartmentEnum.valueOf(department);
-        return usersRepository.findByDepartment(String.valueOf(departmentEnum), PageRequest.of(page, size))
+        return usersRepository.findByDepartment(department, PageRequest.of(page, size))
                 .map(user -> entityMapper.toDto(user, UsersDTO.class));
     }
 
