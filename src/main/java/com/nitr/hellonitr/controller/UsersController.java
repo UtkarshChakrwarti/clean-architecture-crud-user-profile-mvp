@@ -5,9 +5,12 @@ import com.nitr.hellonitr.exception.ResourceNotFoundException;
 import com.nitr.hellonitr.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/users")
@@ -69,6 +72,44 @@ public class UsersController {
     }
 
     //todo: Add more search methods as needed
+
+    @PostMapping("/{id}/profile-picture")
+    public ResponseEntity<String> uploadProfilePicture(
+            @PathVariable String id,
+            @RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body("File is empty");
+        }
+        try {
+            String fileName = usersService.storeProfilePicture(id, file);
+            return ResponseEntity.ok("Profile picture uploaded successfully: " + fileName);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Could not upload profile picture: " + e.getMessage());
+        }
+    }
+
+    //Get profile picture by user id
+    @GetMapping("/{id}/profile-picture")
+    public ResponseEntity<byte[]> getProfilePicture(@PathVariable String id) {
+        try {
+            byte[] imageBytes = usersService.getProfilePicture(id);
+            if (imageBytes == null || imageBytes.length == 0) {
+                return ResponseEntity.notFound().build();
+            }
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_PNG);//or MediaType.IMAGE_PNG
+            return new ResponseEntity<>(imageBytes, headers, HttpStatus.OK);
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(null);
+        }
+    }
+
+
+    // Exception handling
 
     @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)

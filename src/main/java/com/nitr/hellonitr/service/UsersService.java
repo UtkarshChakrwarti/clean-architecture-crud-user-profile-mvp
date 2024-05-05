@@ -3,6 +3,7 @@ package com.nitr.hellonitr.service;
 import com.nitr.hellonitr.dtos.UsersDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public interface UsersService {
@@ -19,5 +20,7 @@ public interface UsersService {
 
     Page<UsersDTO> searchByName(String query, int page, int size);
 
+    String storeProfilePicture(String id, MultipartFile file);
 
+    byte[] getProfilePicture(String id);
 }
