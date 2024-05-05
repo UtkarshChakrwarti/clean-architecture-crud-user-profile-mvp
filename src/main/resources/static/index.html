@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Sidebar Navigation with Tooltips</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link href="src/style.css" rel="stylesheet"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+</head>
+
+<body>
+<nav class="sidebar-navigation">
+    <ul class="nav flex-column">
+        <li class="nav-item active" data-target="dashboard">
+            <i class="fa fa-home"></i>
+            <span class="tooltip">Dashboard</span>
+        </li>
+        <li class="nav-item" data-target="create-users">
+            <i class="fa fa-pencil"></i>
+            <span class="tooltip">Create User</span>
+        </li>
+        <li class="nav-item" data-target="update-user">
+            <i class="fa fa-pencil-square-o"></i>
+            <span class="tooltip">Update User</span>
+        </li>
+        <li class="nav-item" data-target="search-user">
+            <i class="fa fa-search"></i>
+            <span class="tooltip">Search User</span>
+        </li>
+        <li class="nav-item" data-target="delete-user">
+            <i class="fa fa-trash-o"></i>
+            <span class="tooltip">Delete User</span>
+        </li>
+        <li class="nav-item" data-target="all-user">
+            <i class="fa fa-list"></i>
+            <span class="tooltip">All Users</span>
+        </li>
+        <li class="nav-item" data-target="outputTerminal">
+            <i class="fa fa-terminal"></i>
+            <span class="tooltip">Output Terminal</span>
+        </li>
+    </ul>
+</nav>
+<!-- Main content area -->
+<div class="main-content">
+    <!-- Dashboard -->
+    <section class="section-data" id="dashboard">
+        <h2>Hello-NITR Panel Dashboard</h2>
+        <!-- Dashboard Cards for navigation menus -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Create User</h5>
+                        <p class="card-text">Create a new user with all the
+                            required details.</p>
+                        <a class="btn btn-primary" data-target="create-users"
+                           href="#">Create User</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Update User</h5>
+                        <p class="card-text">Update an existing user with new
+                            details.</p>
+                        <a class="btn btn-primary" data-target="update-user"
+                           href="#">Update User</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Search User</h5>
+                        <p class="card-text">Search for a user by name,
+                            designation, or department.</p>
+                        <a class="btn btn-primary" data-target="search-user"
+                           href="#">Search User</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Delete User</h5>
+                        <p class="card-text">Delete a user by providing the user
+                            ID.</p>
+                        <a class="btn btn-primary" data-target="delete-user"
+                           href="#">Delete User</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Create User -->
+    <section class="section-data" id="create-users">
+        <h2>Create New User</h2>
+        <form>
+            <div class="row">
+                <!-- First Column -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label" for="nameCreate">Name</label>
+                        <input class="form-control" id="nameCreate" required
+                               type="text"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="designationCreate">Designation</label>
+                        <select class="form-select" id="designationCreate"
+                                required>
+                            <option disabled selected value="">Choose...
+                            </option>
+                            <option>Manager</option>
+                            <option>Developer</option>
+                            <option>Analyst</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="departmentCreate">Department</label>
+                        <select class="form-select" id="departmentCreate"
+                                required>
+                            <option disabled selected value="">Choose...
+                            </option>
+                            <option>Human Resources</option>
+                            <option>IT</option>
+                            <option>Marketing</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"
+                               for="mobileCreate">Mobile</label>
+                        <input class="form-control" id="mobileCreate"
+                               required type="text"/>
+                    </div>
+                </div>
+                <!-- Second Column -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label"
+                               for="passwordCreate">Password</label>
+                        <input class="form-control" id="passwordCreate"
+                               required type="password"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="residenceCreate">Residence</label>
+                        <input class="form-control" id="residenceCreate"
+                               required type="text"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"
+                               for="emailCreate">Email</label>
+                        <input class="form-control" id="emailCreate"
+                               required type="email"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"
+                               for="rolesCreate">Roles</label>
+                        <select class="form-select" id="rolesCreate" multiple>
+                            <option>Admin</option>
+                            <option>User</option>
+                            <option>Visitor</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- Submit Button -->
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" type="submit">Create User
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Update User -->
+    <section class="section-data" id="update-user">
+        <h2>Update User</h2>
+        <form>
+            <!-- ID Load field -->
+            <div class="mb-3">
+                <label class="form-label" for="userIdUpdate">User ID</label>
+                <div class="input-group">
+                    <input class="form-control" id="userIdUpdate"
+                           placeholder="Enter User ID"
+                           required type="text"/>
+                    <button class="btn btn-primary" id="loadButtonUpdate"
+                            type="button">
+                        Load
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <!-- First Column -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label" for="nameUpdate">Name</label>
+                        <input class="form-control disabled" disabled
+                               id="nameUpdate" type="text"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="designationUpdate">Designation</label>
+                        <select class="form-select disabled"
+                                disabled id="designationUpdate">
+                            <option disabled selected value="">Choose...
+                            </option>
+                            <option>Manager</option>
+                            <option>Developer</option>
+                            <option>Analyst</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="departmentUpdate">Department</label>
+                        <select class="form-select disabled"
+                                disabled id="departmentUpdate">
+                            <option disabled selected value="">Choose...
+                            </option>
+                            <option>Human Resources</option>
+                            <option>IT</option>
+                            <option>Marketing</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"
+                               for="mobileUpdate">Mobile</label>
+                        <input class="form-control disabled" disabled
+                               id="mobileUpdate" type="text"/>
+                    </div>
+                </div>
+                <!-- Second Column -->
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label"
+                               for="passwordUpdate">Password</label>
+                        <input class="form-control disabled" disabled
+                               id="passwordUpdate" type="password"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="residenceUpdate">Residence</label>
+                        <input class="form-control disabled" disabled
+                               id="residenceUpdate" type="text"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"
+                               for="emailUpdate">Email</label>
+                        <input class="form-control disabled" disabled
+                               id="emailUpdate" type="email"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"
+                               for="rolesUpdate">Roles</label>
+                        <select class="form-select disabled" disabled
+                                id="rolesUpdate" multiple>
+                            <option>Admin</option>
+                            <option>User</option>
+                            <option>Visitor</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- Update Button -->
+            <div class="text-center mt-4">
+                <button class="btn btn-success disabled" disabled
+                        id="updateButton" type="submit">
+                    Update User
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Search User -->
+    <section class="section-data" id="search-user">
+        <h2>Search User</h2>
+        <div class="input-group mb-3">
+
+            <select class="form-select" id="searchType">
+                <option selected value="name">Name</option>
+                <option value="designation">Designation</option>
+                <option value="department">Department</option>
+            </select>
+
+            <input class="form-control" id="searchQuery"
+                   placeholder="Enter search text"
+                   type="text"/>
+            <button class="btn btn-outline-primary" id="searchButton"
+                    type="button">
+                Search
+            </button>
+        </div>
+    </section>
+
+    <!-- Delete User -->
+    <section class="section-data" id="delete-user">
+        <h2>Delete User</h2>
+        <div class="input-group mb-3">
+            <input aria-describedby="deleteButton" aria-label="Enter User ID"
+                   class="form-control"
+                   placeholder="Enter User ID"
+                   type="text"/>
+            <button class="btn btn-danger" id="deleteButton" type="button">
+                Delete User
+            </button>
+        </div>
+    </section>
+
+    <!-- All Users -->
+    <section class="section-data" id="all-user">
+        <h2>All Users</h2>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" id="getAllButton" type="submit">
+                Get All Users
+            </button>
+        </div>
+    </section>
+
+    <!-- Output Terminal -->
+    <section class="section-data" id="outputTerminal">
+        <div class="output-terminal">
+            <div class="title-bar">
+                <h3>Output</h3>
+            </div>
+            <div class="output-container">
+                <div class="output-content">
+                    <p>Output will be displayed here...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+<script src="src/script.js"></script>
+</body>
+
+</html>

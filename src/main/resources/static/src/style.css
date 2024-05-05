@@ -1,0 +1,108 @@
+body {
+    background-color: #f5f6f8;
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.sidebar-navigation {
+    position: fixed;
+    /* Locks the sidebar in place on the screen */
+    top: 0;
+    /* Aligns the top of the sidebar with the top of the viewport */
+    left: 0;
+    /* Aligns the sidebar to the left edge of the viewport */
+    height: 100vh;
+    /* Full viewport height */
+    background-color: #313443;
+    z-index: 1000;
+    /* Ensures the sidebar stays on top of other content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70px;
+    background-color: #313443;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-navigation ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    height: auto;
+}
+
+.sidebar-navigation ul li {
+    color: white;
+    padding: 20px 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.sidebar-navigation ul li i {
+    font-size: 20px;
+    transition: color 0.2s;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: #313443;
+    padding: 5px 10px;
+    border-radius: 3px;
+    left: 80px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.tooltip::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    transform: translate(-100%, -50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background-color: inherit;
+}
+
+.sidebar-navigation ul li:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.sidebar-navigation ul li.active i {
+    color: #98d7ec;
+}
+
+.main-content {
+    position: relative;
+    /* Ensures positioning is relative to document flow */
+    margin-left: 70px;
+    /* Sidebar width to prevent overlap */
+    padding: 20px;
+    /* Padding around the content */
+    flex-grow: 1;
+    /* Takes remaining space in the flex container */
+    overflow-y: auto;
+    /* Enables scrolling within the main content area if needed */
+    height: 100vh;
+    /* Optional: sets the height to viewport height */
+    background-color: #fff;
+    /* Background color for visibility */
+}
+
+.section-data {
+    display: none;
+    text-align: left;
+    padding: 20px;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 30px auto;
+}
