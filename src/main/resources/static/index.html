@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <title>Sidebar Navigation with Tooltips</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-          rel="stylesheet"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-          rel="stylesheet"/>
-    <link href="src/style.css" rel="stylesheet"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="src/style.css" rel="stylesheet" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 </head>
-
 <body>
 <nav class="sidebar-navigation">
     <ul class="nav flex-column">
@@ -56,10 +52,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Create User</h5>
-                        <p class="card-text">Create a new user with all the
-                            required details.</p>
-                        <a class="btn btn-primary" data-target="create-users"
-                           href="#">Create User</a>
+                        <p class="card-text">Create a new user with all the required details.</p>
+                        <a class="btn btn-primary" data-target="create-users" href="#">Create User</a>
                     </div>
                 </div>
             </div>
@@ -67,10 +61,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Update User</h5>
-                        <p class="card-text">Update an existing user with new
-                            details.</p>
-                        <a class="btn btn-primary" data-target="update-user"
-                           href="#">Update User</a>
+                        <p class="card-text">Update an existing user with new details.</p>
+                        <a class="btn btn-primary" data-target="update-user" href="#">Update User</a>
                     </div>
                 </div>
             </div>
@@ -78,10 +70,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Search User</h5>
-                        <p class="card-text">Search for a user by name,
-                            designation, or department.</p>
-                        <a class="btn btn-primary" data-target="search-user"
-                           href="#">Search User</a>
+                        <p class="card-text">Search for a user by name, designation, or department.</p>
+                        <a class="btn btn-primary" data-target="search-user" href="#">Search User</a>
                     </div>
                 </div>
             </div>
@@ -89,17 +79,13 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Delete User</h5>
-                        <p class="card-text">Delete a user by providing the user
-                            ID.</p>
-                        <a class="btn btn-primary" data-target="delete-user"
-                           href="#">Delete User</a>
+                        <p class="card-text">Delete a user by providing the user ID.</p>
+                        <a class="btn btn-primary" data-target="delete-user" href="#">Delete User</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
     <!-- Create User -->
     <section class="section-data" id="create-users">
         <h2>Create New User</h2>
@@ -109,76 +95,74 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label class="form-label" for="nameCreate">Name</label>
-                        <input class="form-control" id="nameCreate" required
-                               type="text"/>
+                        <input class="form-control" id="nameCreate" required type="text" />
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="designationCreate">Designation</label>
-                        <select class="form-select" id="designationCreate"
-                                required>
-                            <option disabled selected value="">Choose...
-                            </option>
-                            <option>Manager</option>
-                            <option>Developer</option>
-                            <option>Analyst</option>
+                        <select class="form-select" id="designationCreate" required>
+                            <option disabled selected value="">Choose... </option>
+                            <option value="PROFESSOR">Professor</option>
+                            <option value="ASSOCIATE_PROFESSOR">Associate Professor</option>
+                            <option value="ASSISTANT_PROFESSOR">Assistant Professor</option>
+                            <option value="LECTURER">Lecturer</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="departmentCreate">Department</label>
-                        <select class="form-select" id="departmentCreate"
-                                required>
-                            <option disabled selected value="">Choose...
-                            </option>
-                            <option>Human Resources</option>
-                            <option>IT</option>
-                            <option>Marketing</option>
+                        <select class="form-select" id="departmentCreate" required>
+                            <option disabled selected value="">Choose... </option>
+                            <option value="COMPUTER_SCIENCE">Computer Science</option>
+                            <option value="ELECTRONICS">Electronics</option>
+                            <option value="MECHANICAL">Mechanical</option>
+                            <option value="CIVIL">Civil</option>
+                            <option value="ELECTRICAL">Electrical</option>
+                            <option value="CHEMICAL">Chemical</option>
+                            <option value="PETROLEUM">Petroleum</option>
+                            <option value="AEROSPACE">Aerospace</option>
+                            <option value="BIOTECHNOLOGY">Biotechnology</option>
+                            <option value="AGRICULTURE">Agriculture</option>
+                            <option value="ARCHITECTURE">Architecture</option>
+                            <option value="MATHEMATICS">Mathematics</option>
+                            <option value="PHYSICS">Physics</option>
+                            <option value="CHEMISTRY">Chemistry</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label"
-                               for="mobileCreate">Mobile</label>
-                        <input class="form-control" id="mobileCreate"
-                               required type="text"/>
+                        <label class="form-label" for="mobileCreate">Mobile</label>
+                        <input class="form-control" id="mobileCreate" required type="text" />
                     </div>
                 </div>
                 <!-- Second Column -->
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label class="form-label"
-                               for="passwordCreate">Password</label>
-                        <input class="form-control" id="passwordCreate"
-                               required type="password"/>
+                        <label class="form-label" for="passwordCreate">Password</label>
+                        <input class="form-control" id="passwordCreate" required type="password" />
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="residenceCreate">Residence</label>
-                        <input class="form-control" id="residenceCreate"
-                               required type="text"/>
+                        <input class="form-control" id="residenceCreate" required type="text" />
                     </div>
                     <div class="mb-3">
-                        <label class="form-label"
-                               for="emailCreate">Email</label>
-                        <input class="form-control" id="emailCreate"
-                               required type="email"/>
+                        <label class="form-label" for="emailCreate">Email</label>
+                        <input class="form-control" id="emailCreate" required type="email" />
                     </div>
                     <div class="mb-3">
-                        <label class="form-label"
-                               for="rolesCreate">Roles</label>
+                        <label class="form-label" for="rolesCreate">Roles</label>
                         <select class="form-select" id="rolesCreate" multiple>
-                            <option>Admin</option>
-                            <option>User</option>
-                            <option>Visitor</option>
+                            <option value="ADMIN">Admin</option>
+                            <option value="FACULTY">Faculty</option>
+                            <option value="OFFICER">Officer</option>
+                            <option value="EMPLOYEE">Employee</option>
                         </select>
                     </div>
                 </div>
             </div>
             <!-- Submit Button -->
             <div class="text-center mt-4">
-                <button class="btn btn-primary" type="submit">Create User
-                </button>
+                <button class="btn btn-primary" type="submit" onclick="createUser()">Create User </button>
             </div>
         </form>
     </section>
-
     <!-- Update User -->
     <section class="section-data" id="update-user">
         <h2>Update User</h2>
@@ -187,13 +171,8 @@
             <div class="mb-3">
                 <label class="form-label" for="userIdUpdate">User ID</label>
                 <div class="input-group">
-                    <input class="form-control" id="userIdUpdate"
-                           placeholder="Enter User ID"
-                           required type="text"/>
-                    <button class="btn btn-primary" id="loadButtonUpdate"
-                            type="button">
-                        Load
-                    </button>
+                    <input class="form-control" id="userIdUpdate" placeholder="Enter User ID" required type="text" />
+                    <button class="btn btn-primary" id="loadButtonUpdate" type="button" onclick="loadData()"> Load </button>
                 </div>
             </div>
             <div class="row">
@@ -201,124 +180,103 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label class="form-label" for="nameUpdate">Name</label>
-                        <input class="form-control disabled" disabled
-                               id="nameUpdate" type="text"/>
+                        <input class="form-control disabled" disabled id="nameUpdate" type="text" />
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="designationUpdate">Designation</label>
-                        <select class="form-select disabled"
-                                disabled id="designationUpdate">
-                            <option disabled selected value="">Choose...
-                            </option>
-                            <option>Manager</option>
-                            <option>Developer</option>
-                            <option>Analyst</option>
+                        <select class="form-select disabled" disabled id="designationUpdate">
+                            <option disabled selected value="">Choose... </option>
+                            <option value="PROFESSOR">Professor</option>
+                            <option value="ASSOCIATE_PROFESSOR">Associate Professor</option>
+                            <option value="ASSISTANT_PROFESSOR">Assistant Professor</option>
+                            <option value="LECTURER">Lecturer</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="departmentUpdate">Department</label>
-                        <select class="form-select disabled"
-                                disabled id="departmentUpdate">
-                            <option disabled selected value="">Choose...
-                            </option>
-                            <option>Human Resources</option>
-                            <option>IT</option>
-                            <option>Marketing</option>
+                        <select class="form-select disabled" disabled id="departmentUpdate">
+                            <option disabled selected value="">Choose... </option>
+                            <option value="COMPUTER_SCIENCE">Computer Science</option>
+                            <option value="ELECTRONICS">Electronics</option>
+                            <option value="MECHANICAL">Mechanical</option>
+                            <option value="CIVIL">Civil</option>
+                            <option value="ELECTRICAL">Electrical</option>
+                            <option value="CHEMICAL">Chemical</option>
+                            <option value="PETROLEUM">Petroleum</option>
+                            <option value="AEROSPACE">Aerospace</option>
+                            <option value="BIOTECHNOLOGY">Biotechnology</option>
+                            <option value="AGRICULTURE">Agriculture</option>
+                            <option value="ARCHITECTURE">Architecture</option>
+                            <option value="MATHEMATICS">Mathematics</option>
+                            <option value="PHYSICS">Physics</option>
+                            <option value="CHEMISTRY">Chemistry</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label"
-                               for="mobileUpdate">Mobile</label>
-                        <input class="form-control disabled" disabled
-                               id="mobileUpdate" type="text"/>
+                        <label class="form-label" for="mobileUpdate">Mobile</label>
+                        <input class="form-control disabled" disabled id="mobileUpdate" type="text" />
                     </div>
                 </div>
                 <!-- Second Column -->
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label class="form-label"
-                               for="passwordUpdate">Password</label>
-                        <input class="form-control disabled" disabled
-                               id="passwordUpdate" type="password"/>
+                        <label class="form-label" for="passwordUpdate">Password</label>
+                        <input class="form-control disabled" disabled id="passwordUpdate" type="password" />
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="residenceUpdate">Residence</label>
-                        <input class="form-control disabled" disabled
-                               id="residenceUpdate" type="text"/>
+                        <input class="form-control disabled" disabled id="residenceUpdate" type="text" />
                     </div>
                     <div class="mb-3">
-                        <label class="form-label"
-                               for="emailUpdate">Email</label>
-                        <input class="form-control disabled" disabled
-                               id="emailUpdate" type="email"/>
+                        <label class="form-label" for="emailUpdate">Email</label>
+                        <input class="form-control disabled" disabled id="emailUpdate" type="email" />
                     </div>
                     <div class="mb-3">
-                        <label class="form-label"
-                               for="rolesUpdate">Roles</label>
-                        <select class="form-select disabled" disabled
-                                id="rolesUpdate" multiple>
-                            <option>Admin</option>
-                            <option>User</option>
-                            <option>Visitor</option>
+                        <label class="form-label" for="rolesUpdate">Roles</label>
+                        <select class="form-select disabled" disabled id="rolesUpdate" multiple>
+                            <option value="ADMIN">Admin</option>
+                            <option value="FACULTY">Faculty</option>
+                            <option value="OFFICER">Officer</option>
+                            <option value="EMPLOYEE">Employee</option>
                         </select>
                     </div>
                 </div>
             </div>
             <!-- Update Button -->
             <div class="text-center mt-4">
-                <button class="btn btn-success disabled" disabled
-                        id="updateButton" type="submit">
-                    Update User
-                </button>
+                <button class="btn btn-success" disabled id="updateButton" type="submit" onclick="updateUser()"> Update User </button>
             </div>
         </form>
     </section>
-
     <!-- Search User -->
     <section class="section-data" id="search-user">
         <h2>Search User</h2>
         <div class="input-group mb-3">
-
             <select class="form-select" id="searchType">
                 <option selected value="name">Name</option>
                 <option value="designation">Designation</option>
                 <option value="department">Department</option>
             </select>
-
-            <input class="form-control" id="searchQuery"
-                   placeholder="Enter search text"
-                   type="text"/>
-            <button class="btn btn-outline-primary" id="searchButton"
-                    type="button">
-                Search
-            </button>
+            <input class="form-control" id="searchQuery" placeholder="Enter search text" type="text" />
+            <button class="btn btn-outline-primary" id="searchButton" type="button" onclick="searchUser()"> Search </button>
         </div>
     </section>
-
+    <script></script>
     <!-- Delete User -->
     <section class="section-data" id="delete-user">
         <h2>Delete User</h2>
         <div class="input-group mb-3">
-            <input aria-describedby="deleteButton" aria-label="Enter User ID"
-                   class="form-control"
-                   placeholder="Enter User ID"
-                   type="text"/>
-            <button class="btn btn-danger" id="deleteButton" type="button">
-                Delete User
-            </button>
+            <input aria-describedby="deleteButton" aria-label="Enter User ID" class="form-control" placeholder="Enter User ID" type="text" />
+            <button class="btn btn-danger" id="deleteButton" type="button" onclick="deleteUser()">Delete User</button>
         </div>
     </section>
-
     <!-- All Users -->
     <section class="section-data" id="all-user">
         <h2>All Users</h2>
         <div class="text-center mt-4">
-            <button class="btn btn-primary" id="getAllButton" type="submit">
-                Get All Users
-            </button>
+            <button class="btn btn-primary" id="getAllButton" type="submit" onclick="getAllUsers()"> Get All Users </button>
         </div>
     </section>
-
     <!-- Output Terminal -->
     <section class="section-data" id="outputTerminal">
         <div class="output-terminal">
@@ -332,9 +290,7 @@
             </div>
         </div>
     </section>
-
 </div>
 <script src="src/script.js"></script>
 </body>
-
 </html>
