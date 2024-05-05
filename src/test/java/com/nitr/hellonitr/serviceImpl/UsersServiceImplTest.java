@@ -137,41 +137,4 @@ class UsersServiceImplTest {
         verify(entityMapper, times(1)).toDto(user, UsersDTO.class);
     }
 
-    @Test
-    void searchByDepartment() {
-        String department = "IT";
-        Users user = new Users();
-        UsersDTO userDTO = new UsersDTO();
-        Page<Users> usersPage = new PageImpl<>(Collections.singletonList(user));
-        Page<UsersDTO> usersDTOPage = new PageImpl<>(Collections.singletonList(userDTO));
-
-        when(usersRepository.findByDepartment(department, PageRequest.of(0, 10))).thenReturn(usersPage);
-        when(entityMapper.toDto(user, UsersDTO.class)).thenReturn(userDTO);
-
-        Page<UsersDTO> result = usersService.searchByDepartment(department, 0, 10);
-
-        assertEquals(usersDTOPage.getContent(), result.getContent());
-        verify(usersRepository, times(1)).findByDepartment(department, PageRequest.of(0, 10));
-        verify(entityMapper, times(1)).toDto(user, UsersDTO.class);
-    }
-
-    @Test
-    void searchByDesignation() {
-        String designation = "Software Engineer";
-        Users user = new Users();
-        UsersDTO userDTO = new UsersDTO();
-        Page<Users> usersPage = new PageImpl<>(Collections.singletonList(user));
-        Page<UsersDTO> usersDTOPage = new PageImpl<>(Collections.singletonList(userDTO));
-
-        when(usersRepository.findByDesignation(designation, PageRequest.of(0, 10))).thenReturn(usersPage);
-        when(entityMapper.toDto(user, UsersDTO.class)).thenReturn(userDTO);
-
-        Page<UsersDTO> result = usersService.searchByDesignation(designation, 0, 10);
-
-        assertEquals(usersDTOPage.getContent(), result.getContent());
-        verify(usersRepository, times(1)).findByDesignation(designation, PageRequest.of(0, 10));
-        verify(entityMapper, times(1)).toDto(user, UsersDTO.class);
-    }
-    // Add more tests as needed
-
 }

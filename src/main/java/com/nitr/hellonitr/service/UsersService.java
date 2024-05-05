@@ -17,10 +17,7 @@ public interface UsersService {
 
     void deleteUser(String id);
 
-    Page<UsersDTO> searchByName(String name, int page, int size);
+    Page<UsersDTO> searchByName(String query, int page, int size);
 
-    Page<UsersDTO> searchByDepartment(String department, int page, int size);
-
-    Page<UsersDTO> searchByDesignation(String designation, int page, int size);
 
 }

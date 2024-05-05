@@ -12,15 +12,8 @@ import java.util.UUID;
 @Repository
 public interface UsersRepository extends JpaRepository<Users, UUID> {
 
-    //Case-insensitive searches for name, department, and designation
-    @Query("SELECT u FROM Users u WHERE LOWER(u.name) LIKE LOWER(CONCAT('%', ?1, '%'))")
+    //Case-insensitive searches for name, email, department, phone number or any other field write query for it nested in the repository
+    @Query("SELECT u FROM Users u WHERE lower(u.name) LIKE lower(concat('%', ?1, '%')) OR lower(u.email) LIKE lower(concat('%', ?1, '%')) OR lower(u.department) LIKE lower(concat('%', ?1, '%')) OR lower(u.mobile) LIKE lower(concat('%', ?1, '%'))")
     Page<Users> findByName(String name, Pageable pageable);
-
-    @Query("SELECT u FROM Users u WHERE LOWER(u.department) LIKE LOWER(CONCAT('%', ?1, '%'))")
-    Page<Users> findByDepartment(String department, Pageable pageable);
-
-    @Query("SELECT u FROM Users u WHERE LOWER(u.designation) LIKE LOWER(CONCAT('%', ?1, '%'))")
-    Page<Users> findByDesignation(String designation, Pageable pageable);
-
 
 }

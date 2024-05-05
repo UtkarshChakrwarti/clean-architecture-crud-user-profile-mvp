@@ -62,27 +62,10 @@ public class UsersController {
     // Search users by name: /api/users/search?name=value&page=0&size=50
     @GetMapping("/search")
     public ResponseEntity<Page<UsersDTO>> searchByName(
-            @RequestParam String name,
+            @RequestParam String query,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "50") int size) {
-        return ResponseEntity.ok(usersService.searchByName(name, page, size));
-    }
-
-    // Advanced searches could still use their specific paths for clarity
-    @GetMapping("/search/department/{department}")
-    public ResponseEntity<Page<UsersDTO>> searchByDepartment(
-            @PathVariable String department,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "50") int size) {
-        return ResponseEntity.ok(usersService.searchByDepartment(department, page, size));
-    }
-
-    @GetMapping("/search/designation/{designation}")
-    public ResponseEntity<Page<UsersDTO>> searchByDesignation(
-            @PathVariable String designation,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "50") int size) {
-        return ResponseEntity.ok(usersService.searchByDesignation(designation, page, size));
+        return ResponseEntity.ok(usersService.searchByName(query, page, size));
     }
 
     //todo: Add more search methods as needed

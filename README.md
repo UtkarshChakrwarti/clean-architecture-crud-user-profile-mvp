@@ -17,10 +17,9 @@ The application provides the following endpoints:
 - `POST /api/users`: Create a new user.
 - `PUT /api/users/{id}`: Update an existing user.
 - `DELETE /api/users/{id}`: Delete a user.
-- `GET /api/users/search`: Search users by name with pagination.
-- `GET /api/users/search/department/{department}`: Search users by department with pagination.
-- `GET /api/users/search/designation/{designation}`: Search users by designation with pagination.
-
+- `GET /api/users/search`: Search users with pagination support 
+  Case-insensitive searches for name, email, department, mobile number or 
+  any other field write query for it nested in the repository
 ## Setup
 
 To run this project, you need to have Java and Maven installed on your machine.

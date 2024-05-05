@@ -11,6 +11,7 @@ import com.nitr.hellonitr.utility.EntityMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -31,10 +32,13 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public Page<UsersDTO> getAllUsers(int page, int size) {
-        return usersRepository.findAll(PageRequest.of(page, size))
+        // Create a PageRequest with sorting by 'name' in ascending order
+        PageRequest pageRequest = PageRequest.of(page, size, Sort.by("name").ascending());
+
+        // Fetch the page from the repository and convert entities to DTOs
+        return usersRepository.findAll(pageRequest)
                 .map(user -> entityMapper.toDto(user, UsersDTO.class));
     }
-
     @Override
     public UsersDTO createUser(UsersDTO userDto) {
         Users user = entityMapper.toEntity(userDto, Users.class);
@@ -66,21 +70,11 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public Page<UsersDTO> searchByName(String name, int page, int size) {
-        return usersRepository.findByName(name, PageRequest.of(page, size))
+    public Page<UsersDTO> searchByName(String query, int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page, size, Sort.by("name").ascending());
+        return usersRepository.findByName(query, pageRequest)
                 .map(user -> entityMapper.toDto(user, UsersDTO.class));
     }
 
-    @Override
-    public Page<UsersDTO> searchByDepartment(String department, int page, int size) {
-        return usersRepository.findByDepartment(department, PageRequest.of(page, size))
-                .map(user -> entityMapper.toDto(user, UsersDTO.class));
-    }
-
-    @Override
-    public Page<UsersDTO> searchByDesignation(String designation, int page, int size) {
-        return usersRepository.findByDesignation(designation, PageRequest.of(page, size))
-                .map(user -> entityMapper.toDto(user, UsersDTO.class));
-    }
 
 }
