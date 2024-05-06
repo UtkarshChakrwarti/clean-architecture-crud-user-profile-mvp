@@ -20,6 +20,9 @@ The application provides the following endpoints:
 - `GET /api/users/search`: Search users with pagination support 
   Case-insensitive searches for name, email, department, mobile number or 
   any other field write query for it nested in the repository
+- `GET api/users/{id}/profile-picture` : Get the profile picture of the user with the given id
+- `POST api/users/{id}/profile-picture` : Upload a profile picture for the user with the given id
+- `DELETE api/users/{id}/profile-picture` : Delete the profile picture of the user with the given id
 ## Setup
 
 To run this project, you need to have Java and Maven installed on your machine.

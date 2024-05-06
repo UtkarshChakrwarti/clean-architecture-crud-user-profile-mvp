@@ -23,4 +23,6 @@ public interface UsersService {
     String storeProfilePicture(String id, MultipartFile file);
 
     byte[] getProfilePicture(String id);
+
+    void deleteProfilePicture(String id);
 }

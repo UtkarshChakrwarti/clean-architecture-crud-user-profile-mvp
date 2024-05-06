@@ -103,5 +103,14 @@ public class UsersServiceImpl implements UsersService {
         return user.getProfilePicture();
     }
 
+    @Override
+    public void deleteProfilePicture(String id) {
+        Users user = usersRepository.findById(UUID.fromString(id)).orElseThrow(() ->
+                new ResourceNotFoundException("User not found with id " + id));
+
+        user.setProfilePicture(null);  // Set the profilePicture field to null
+        usersRepository.save(user);    // Save the user entity with the updated profile picture
+    }
+
 
 }

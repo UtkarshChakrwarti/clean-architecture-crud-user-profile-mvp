@@ -18,6 +18,6 @@ public class UsersDTO {
     private String residence;
     private String email;
     private Set<RoleNameEnum> roles;
-    private String profilePicture;
+    private byte[] profilePicture;
 
 }

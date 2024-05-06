@@ -108,6 +108,14 @@ public class UsersController {
         }
     }
 
+    //Delete profile picture by user id
+    @DeleteMapping("/{id}/profile-picture")
+    public ResponseEntity<Void> deleteProfilePicture(
+            @PathVariable String id) {
+        usersService.deleteProfilePicture(id);
+        return ResponseEntity.ok().build();
+    }
+
 
     // Exception handling
 
