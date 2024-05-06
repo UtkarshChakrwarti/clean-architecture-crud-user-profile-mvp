@@ -1,4 +1,4 @@
-# HelloNITR Project
+# Clean-Architecture-CRUD-user-profile-MVP
 
 This is a Spring Boot application that provides a RESTful API for managing users.
 
